@@ -11,11 +11,13 @@
 //		this->y = y;
 //	}
 //};
+
+//Точка
 struct Point
 {
 	double x;
 	double y;
-
+	//explicit // запрет неявного конструктора от одного параметра
 	Point(double x=0, double y=0):x(x),y(y) 
 	{}
 };
@@ -31,7 +33,8 @@ struct Segment
 	Segment() {}
 	Segment(Point p1,Point p2):p1(p1),p2(p2){}
 	Segment(Point p):p1(0,0),p2(p){}
-	Segment(double length): p2(length,0){}
+	//explicit // запрет неявного конструктора от одного параметра
+	Segment(double length): p2(length,0){} 
 	
 };
 
