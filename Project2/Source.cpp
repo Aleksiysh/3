@@ -22,6 +22,8 @@ void constructors() {
 		")\nLength:  " << lenght(&s4) << "\n" << endl;
 	cout << "s5=7: (" << s5.p1.x << "," << s5.p1.y << "),(" << s5.p2.x << "," << s5.p2.y <<
 		")\nLength:  " << lenght(&s5) << "\n" << endl;
+
+	IntArray a(5);
 }
 
 int main() {
