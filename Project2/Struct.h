@@ -57,3 +57,12 @@ struct IntArray
 	size_t size;
 	int * data;
 };
+struct String {
+	String(const char *str = "");
+	String(size_t n, char c);
+	~String();
+	void append(String &other);
+
+	size_t size;
+	char *str;
+};

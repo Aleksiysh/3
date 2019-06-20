@@ -6,7 +6,7 @@ using namespace std;
 
 //Работа с конструктором
 void constructors() {
-	Point p1, p2(2),p3(3,4),p4=5;
+	/*Point p1, p2(2),p3(3,4),p4=5;
 	cout <<"p1: ("<< p1.x << "," << p1.y<<")\n"<<endl;
 	cout <<"p2(2): ("<< p2.x << "," << p2.y<<")\n"<<endl;
 	cout <<"p3(3,4): ("<< p3.x << "," << p3.y<<")\n"<<endl;
@@ -23,7 +23,13 @@ void constructors() {
 	cout << "s5=7: (" << s5.p1.x << "," << s5.p1.y << "),(" << s5.p2.x << "," << s5.p2.y <<
 		")\nLength:  " << lenght(&s5) << "\n" << endl;
 
-	IntArray a(5);
+	IntArray a(5);*/
+
+	String str("1234");
+	String s2(" 09");
+	str.append(s2);
+	s2.append(s2);
+
 }
 
 int main() {
