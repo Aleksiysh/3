@@ -1,5 +1,7 @@
 #include "Struct.h"
 #include <cmath>
+#include <iostream>
+#using namespace std;
 
 double lenght(Segment *s) {
 	double dx = s->p1.x - s->p2.x;
@@ -33,6 +35,10 @@ struct String {
 	~String() {
 		delete[] str;
 	}
+	void append(String &other) {
+		cout << other.str << endl;
+	}
+
 	size_t size;
 	char *str;
 };
