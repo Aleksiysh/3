@@ -108,7 +108,7 @@ void constant() {
 	//*p4 = 40;
 	//p4 = 0;
 
-	int const *const * m;
+	//int const *const * m;
 }
 
 void constant1() {
@@ -131,6 +131,31 @@ void constant1() {
 	*p3 = 0;
 	//p3 = 0;
 }
+//Конструктор копирования и присваивания
+void constutorCopy(){
+	myIntArray a1(10);
+	myIntArray a2(20);
+	myIntArray a3 = a1;
+	a2 = a1;
+}
+//Строка
+void teststring() {
+	String a("строка");
+	String b;
+	b = a;
+}
+
+void testIntArray() {
+	IntArray a1(10);
+	IntArray a2(5);
+	//a1 = a2;
+	IntArray a3 = a1;
+	a1.get(0) = 6;
+	int a = a1.get(0);
+
+
+
+};
 
 int main() {
 	setlocale(LC_ALL, "Rus");
@@ -141,8 +166,11 @@ int main() {
 	//classes();
 	//constant();
 	//_Segment();
-	arr();
-
+	//arr();
+	//constutorCopy();
+	//teststring();
+	//testIntArray();
+	
 
 	cin.get();
 	cout << "\n Press Enter";

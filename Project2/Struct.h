@@ -49,19 +49,22 @@ struct IntArray2D {
 struct myIntArray
 {
 	explicit myIntArray(size_t size=0);	
+	myIntArray(myIntArray const &a);		//конструктор копирования
+	
 	~myIntArray();
 	void resize(size_t new_size);
 	int & getElement(size_t i);
 	int getElement(size_t i) const;
 	void setElement(size_t i, int value);
 	void print();
+	myIntArray &operator= (myIntArray const &a);
 	size_t get_size() const {
-		return this->size;
+		return this->size_;
 		//this->size = 0;
 	}
 private:
-	size_t size;
-	int * data;
+	size_t size_;
+	int * data_;
 };
 
 struct String {
@@ -69,7 +72,11 @@ struct String {
 	String(size_t n, char c);
 	~String();
 	void append(String &other);
-
+	//конструктор копирования
+	String(const String &other);
+	//оператор присваивания
+	String &operator=(const String &other);
+private:
 	size_t size;
 	char *str;
 };
@@ -90,5 +97,20 @@ public:
 		return *(double*)(char*)(&cls+1);
 	}
 	
+};
+
+struct IntArray {
+	explicit IntArray(size_t size);
+	IntArray(IntArray const &a);
+	~IntArray();
+	IntArray & operator = (IntArray &a);
+	void swap(IntArray &a);
+	size_t size() const ;
+	int get(size_t i) const;
+	int & get(size_t i);
+	void resize(size_t nsize);
+private:
+	size_t size_;
+	int * data_;
 };
 

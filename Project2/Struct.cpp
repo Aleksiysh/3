@@ -12,7 +12,7 @@ double lenght(Segment *s) {
 double Segment::lenght() {
 	return sqrt(this->p1.x*this->p1.x + this->p1.y*this->p1.y);
 }
-Point Segment::midpoint(){
+Point Segment::midpoint() {
 	return Point((this->p1.x + this->p2.x) / 2, (this->p1.y + this->p2.y) / 2);
 }
 Point midpoint(Segment const & a) {
@@ -46,6 +46,25 @@ String::String(size_t n, char c) :size(n)
 String::~String() {
 	delete[] str;
 }
+//конструктор копирования
+String::String(const String &other):
+size(other.size),
+str(new char[size+1])
+{
+	for (size_t i = 0; i < size+1; i++)
+		str[i] = other.str[i];
+};
+//оператор присваивания
+String & String::operator=(const String &other) {
+	if (this != &other) {
+		delete[] str;
+		size = other.size;
+		str = new char[size + 1];
+		for (size_t i = 0; i < size + 1; i++)
+			str[i] = other.str[i];
+	}
+	return *this;
+};
 void String::append(String &other) {
 	char *tmpstr = new char[this->size + other.size + 1];
 	for (size_t i = 0; i < this->size; i++)
@@ -60,45 +79,107 @@ void String::append(String &other) {
 
 //Методы myIntArray
 myIntArray::myIntArray(size_t size)
-	:size(size)
-	, data(new int[size])
+	:size_(size)
+	, data_(new int[size])
 {
 	{
 		for (size_t i = 0; i < size; i++)
-			*(data + i) = 0;
+			*(data_ + i) = 0;
 		cout << "Constructor" << endl;
 	}
 }
+//конструктор копирования
+myIntArray::myIntArray(myIntArray const &a)
+	: size_(a.size_),
+	data_(new int[size_]) {
+	for (size_t i = 0; i < size_; i++)
+		data_[i] = a.data_[i];
+};
+//оператор присваивания
+myIntArray & myIntArray::operator = (myIntArray const &a) {
+	if (this != &a) {
+		delete[] data_;
+		size_ = a.size_;
+		data_ = new int[size_];
+		for (size_t i = 0; i < size_; i++)
+			*(data_ + i) = *(a.data_ + i);
+	};
+	return *this;
+};
+
 void myIntArray::resize(size_t new_size) {
 	int * new_data = new int[new_size];
-	size_t min = (new_size < this->size) ? new_size : this->size;
+	size_t min = (new_size < this->size_) ? new_size : this->size_;
 	size_t i = 0;
 	for (; i < min; i++) {
-		*(new_data + i) = *(data + i);
+		*(new_data + i) = *(data_ + i);
 	}
 	for (; i < new_size; i++)
 		*(new_data + i) = 0;
-	delete[] data;
-	this->data = new_data;
-	this->size = new_size;
+	delete[] data_;
+	this->data_ = new_data;
+	this->size_ = new_size;
 };
 int & myIntArray::getElement(size_t i) {
-	return *(this->data + i);
+	return *(this->data_ + i);
 };
 int myIntArray::getElement(size_t i) const {
-	return *(this->data + i);
+	return *(this->data_ + i);
 };
 void myIntArray::setElement(size_t i, int value) {
-	*(this->data + i) = value;
+	*(this->data_ + i) = value;
 };
 void myIntArray::print() {
-	for (size_t i = 0; i < this->size; i++)
-		cout << *(this->data + i) << " ";
+	for (size_t i = 0; i < this->size_; i++)
+		cout << *(this->data_ + i) << " ";
 	cout << endl;
 }
 myIntArray::~myIntArray() {
-	delete[] data;
+	delete[] data_;
 	cout << "destructor" << endl;
 }
+
+IntArray::IntArray(size_t size)
+	:size_(size),data_(new int[size_])
+{
+	for (size_t i = 0; i < size_; i++)
+		data_[i] = 0;
+};
+IntArray::IntArray(IntArray const &a)
+	:size_(a.size_), data_(new int[size_])
+{
+	for (size_t i = 0; i < size_; i++)
+		data_[i] = a.data_[i];
+};
+IntArray::~IntArray() { delete[] data_; };
+IntArray & IntArray::operator = (IntArray &a) {
+	if (this != &a) {
+		IntArray(a).swap(*this);
+	}
+	return *this;
+};
+void IntArray::swap(IntArray &a) {
+	std::swap(size_, a.size_);
+	std::swap(data_, a.data_);
+};
+size_t IntArray::size() const {
+	return size_;
+}
+int IntArray::get(size_t i) const
+{
+	return data_[i];
+}
+int & IntArray::get(size_t i)
+{
+	return data_[i];
+}
+void IntArray::resize(size_t nsize)
+{
+	IntArray t(nsize);
+	size_t n = nsize > size_ ? size_ : nsize;
+	for (size_t i = 0; i < n; i++)
+		t.data_[i] = data_[i];
+	swap(t);
+};
 
 
