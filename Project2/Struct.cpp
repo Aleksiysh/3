@@ -1,4 +1,4 @@
-#include "Struct.h"
+﻿#include "Struct.h"
 #include <cmath>
 #include <iostream>
 using namespace std;

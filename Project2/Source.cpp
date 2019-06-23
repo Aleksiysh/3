@@ -1,10 +1,10 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include "Struct.h"
 
 using namespace std;
 
-//Работа с конструктором
+//Р Р°Р±РѕС‚Р° СЃ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРј
 void constructors() {
 	/*Point p1, p2(2),p3(3,4),p4=5;
 	cout <<"p1: ("<< p1.x << "," << p1.y<<")\n"<<endl;
@@ -25,10 +25,15 @@ void constructors() {
 
 	IntArray a(5);*/
 
-	String str("1234");
-	String s2(" 09");
-	str.append(s2);
-	s2.append(s2);
+	//String str("1234");
+	//String s2(" 09");
+	//str.append(s2);
+	//s2.append(s2);
+
+	Cls a('c', 10.5, 5);
+	char b;
+	a.get_c(a);
+	cout << a.get_d(a) << endl;
 
 }
 
@@ -41,6 +46,6 @@ int main() {
 	return 0;
 }
 
-//а это  поправил дома
+//Р° СЌС‚Рѕ  РїРѕРїСЂР°РІРёР» РґРѕРјР°
 
 

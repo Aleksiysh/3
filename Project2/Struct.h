@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 //struct Point_
 //{
 //	double x;
@@ -12,17 +12,17 @@
 //	}
 //};
 
-//�����
+//Точка
 struct Point
 {
 	double x;
 	double y;
-	//explicit // ������ �������� ������������ �� ������ ���������
+	//explicit // запрет неявного конструктора от одного параметра
 	Point(double x = 0, double y = 0) :x(x), y(y)
 	{}
 };
 
-//**������� 
+//**Отрезок 
 //Segment(Point p1,Point p2)
 //Segment(Point p2)
 //Segment(double length)
@@ -33,7 +33,7 @@ struct Segment
 	Segment() {}
 	Segment(Point p1, Point p2) :p1(p1), p2(p2) {}
 	Segment(Point p) :p1(0, 0), p2(p) {}
-	//explicit // ������ �������� ������������ �� ������ ���������
+	//explicit // запрет неявного конструктора от одного параметра
 	Segment(double length) : p2(length, 0) {}
 
 };
@@ -45,7 +45,7 @@ struct IntArray2D {
 	size_t b;
 	int *data;
 };
-//����� �������
+//Длина отрезка
 double lenght(Segment *s);
 
 struct IntArray
@@ -66,3 +66,25 @@ struct String {
 	size_t size;
 	char *str;
 };
+
+
+
+struct Cls {
+	Cls(char c, double d, int i):c(c),d(d),i(i) {};
+private:
+	char c;
+	double d;
+	int i;
+public:
+	// Эта функция должна предоставить доступ к полю c объекта cls.
+	// Обратите внимание, что возвращается ссылка на char, т. е.
+	// доступ предоставляется на чтение и запись.
+	char &get_c(Cls &cls) {
+		return *(char*)&cls;
+	}
+	double &get_d(Cls &cls) {
+		return *(double*)(char*)(&cls+1);
+	}
+	
+};
+
