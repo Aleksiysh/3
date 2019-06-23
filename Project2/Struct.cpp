@@ -46,4 +46,44 @@ void String::append(String &other) {
 	this->str = tmpstr;
 }
 
+//Методы myIntArray
+myIntArray::myIntArray(size_t size)
+	:size(size)
+	, data(new int[size])
+{
+	{
+		for (size_t i = 0; i < size; i++)
+			*(data + i) = 0;
+		cout << "Constructor" << endl;
+	}
+}
+void myIntArray::resize(size_t new_size) {
+	int * new_data = new int[new_size];
+	size_t min = (new_size < this->size) ? new_size : this->size;
+	size_t i = 0;
+	for (; i < min; i++) {
+		*(new_data + i) = *(data + i);
+	}
+	for (; i < new_size; i++)
+		*(new_data + i) = 0;
+	delete[] data;
+	this->data = new_data;
+	this->size = new_size;
+};
+int & myIntArray::getElement(size_t i) {
+	return *(this->data + i);
+};
+void myIntArray::setElement(size_t i, int value) {
+	*(this->data + i) = value;
+};
+void myIntArray::print() {
+	for (size_t i = 0; i < this->size; i++)
+		cout << *(this->data + i) << " ";
+	cout << endl;
+}
+myIntArray::~myIntArray() {
+	delete[] data;
+	cout << "destructor" << endl;
+}
+
 

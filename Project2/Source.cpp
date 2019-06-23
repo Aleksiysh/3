@@ -2,6 +2,9 @@
 #include <string>
 #include "Struct.h"
 
+#include <clocale>
+#include <windows.h>
+
 using namespace std;
 
 //Работа с конструктором
@@ -25,20 +28,49 @@ void constructors() {
 
 	IntArray a(5);*/
 
-	//String str("1234");
-	//String s2(" 09");
-	//str.append(s2);
-	//s2.append(s2);
+	String str("1234");
+	String s2(" 09");
+	str.append(s2);
+	s2.append(s2);
 
-	Cls a('c', 10.5, 5);
-	char b;
-	a.get_c(a);
-	cout << a.get_d(a) << endl;
+	Cls d('c', 10.5, 5);
+	//char b;
+	d.get_c(d);
+	cout << d.get_d(d) << endl;
+
+	myIntArray *a = new myIntArray(10);
+	a->print();
+	a->setElement(3, 6);
+	a->print();
+	for (size_t i = 0; i < a->size; i++)
+		a->setElement(i, 10 - i);
+	a->print();
+	a->resize(20);
+	a->print();
+	a->resize(3);
+	a->print();
+	delete  a;
+
+	myIntArray  *b = new myIntArray[10]; 
+	b[0].print();
+	b[0].resize(5);
+	b[0].print();
+	delete[] b;
+
+	void *p = alloca(sizeof(myIntArray));
+	myIntArray *c = new (p) myIntArray(10);
+	c->~myIntArray();
 
 }
 
 int main() {
+	setlocale(LC_ALL, "Rus");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
 	constructors();
+
+
 
 	cin.get();
 	cout << "\n Press Enter";
@@ -46,6 +78,6 @@ int main() {
 	return 0;
 }
 
-//а это  поправил дома
+
 
 

@@ -1,16 +1,16 @@
 ﻿#pragma once
-//struct Point_
-//{
-//	double x;
-//	double y;
-//	Point_() {
-//		x = y = 0;
-//	}
-//	Point_(double x, double y) {
-//		this->x = x;
-//		this->y = y;
-//	}
-//};
+struct Point_
+{
+	double x;
+	double y;
+	Point_() {
+		x = y = 0;
+	}
+	Point_(double x, double y) {
+		this->x = x;
+		this->y = y;
+	}
+};
 
 //Точка
 struct Point
@@ -48,15 +48,18 @@ struct IntArray2D {
 //Длина отрезка
 double lenght(Segment *s);
 
-struct IntArray
+struct myIntArray
 {
-	explicit IntArray(size_t size)
-		:size(size)
-		, data(new int[size])
-	{}
+	explicit myIntArray(size_t size=0);	
+	~myIntArray();
+	void resize(size_t new_size);
+	int & getElement(size_t i);
+	void setElement(size_t i, int value);
+	void print();
 	size_t size;
 	int * data;
 };
+
 struct String {
 	String(const char *str = "");
 	String(size_t n, char c);
@@ -66,9 +69,6 @@ struct String {
 	size_t size;
 	char *str;
 };
-
-
-
 struct Cls {
 	Cls(char c, double d, int i):c(c),d(d),i(i) {};
 private:
