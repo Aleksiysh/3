@@ -11,7 +11,6 @@ struct Point_
 		this->y = y;
 	}
 };
-
 //Точка
 struct Point
 {
@@ -21,11 +20,7 @@ struct Point
 	Point(double x = 0, double y = 0) :x(x), y(y)
 	{}
 };
-
 //**Отрезок 
-//Segment(Point p1,Point p2)
-//Segment(Point p2)
-//Segment(double length)
 struct Segment
 {
 	Point p1;
@@ -35,9 +30,12 @@ struct Segment
 	Segment(Point p) :p1(0, 0), p2(p) {}
 	//explicit // запрет неявного конструктора от одного параметра
 	Segment(double length) : p2(length, 0) {}
+	double  lenght();
 
 };
-
+//Длина отрезка
+double lenght(Segment *s);
+//двумерный массив
 struct IntArray2D {
 	//get[i][j]
 	int & get(size_t i, size_t j);
@@ -45,9 +43,7 @@ struct IntArray2D {
 	size_t b;
 	int *data;
 };
-//Длина отрезка
-double lenght(Segment *s);
-
+//одномерный массив
 struct myIntArray
 {
 	explicit myIntArray(size_t size=0);	

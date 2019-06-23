@@ -63,14 +63,17 @@ void constructors() {
 
 }
 
+//Classes
+void classes() {
+
+}
 int main() {
 	setlocale(LC_ALL, "Rus");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	constructors();
-
-
+	//constructors();
+	classes();
 
 	cin.get();
 	cout << "\n Press Enter";

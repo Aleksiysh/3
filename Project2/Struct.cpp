@@ -9,6 +9,10 @@ double lenght(Segment *s) {
 	return sqrt(dx*dx + dy * dy);
 }
 
+double Segment::lenght() {
+	return sqrt(this->p1.x*this->p1.x + this->p1.y*this->p1.y);
+}
+
 //get[i][j]
 int & IntArray2D::get(size_t i, size_t j) {
 	return data[i*b + j];
