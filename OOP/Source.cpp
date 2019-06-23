@@ -5,9 +5,14 @@
 using namespace std;
 
 void tstPerson() {
-	Person a("Вася",25);
+	Person a("Вася", 25);
 	Student b("Vanya", 22, "MFTI");
 
+	Student d(a, "ddd");
+	Person c = b;
+
+	Person &l = b;
+	Person *r = &b;
 }
 
 

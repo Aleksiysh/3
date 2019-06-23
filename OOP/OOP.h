@@ -14,6 +14,7 @@ private:
 
 struct Student :Person {
 	Student(string name, int age, string university);
+	Student(Person a, string university);
 	string university();
 private:
 	string university_;
