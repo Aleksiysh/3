@@ -7,6 +7,19 @@
 
 using namespace std;
 
+void _Segment() {
+	Point p1(2, 4);
+	Point p2(5, 6);
+	Segment s(p1, p2);
+	Point mp = midpoint(s);
+	Point mp1 = s.midpoint();
+}
+void arr() {
+	myIntArray *a= new myIntArray(10);
+	int m = a->getElement(2);
+	int n = a->getElement(2);
+
+}
 //Работа с конструктором
 void constructors() {
 	/*Point p1, p2(2),p3(3,4),p4=5;
@@ -42,7 +55,7 @@ void constructors() {
 	a->print();
 	a->setElement(3, 6);
 	a->print();
-	for (size_t i = 0; i < a->size; i++)
+	for (int i = 0; i < a->get_size(); i++)
 		a->setElement(i, 10 - i);
 	a->print();
 	a->resize(20);
@@ -51,7 +64,7 @@ void constructors() {
 	a->print();
 	delete  a;
 
-	myIntArray  *b = new myIntArray[10]; 
+	myIntArray  *b = new myIntArray[10];
 	b[0].print();
 	b[0].resize(5);
 	b[0].print();
@@ -62,18 +75,74 @@ void constructors() {
 	c->~myIntArray();
 
 }
-
 //Classes
 void classes() {
 
 }
+//Const
+void constant() {
+	double const pi = 3.1415926535;
+	int const day_seconds = 24 * 60 * 60;
+	int const days[12] = { 31,28,31,
+							30,31,30,
+							31,31,30,
+							31,30,31 };
+
+	int *may = (int *)&days[4];
+	cout << days[4] << endl;
+	*may = 30;
+
+	cout << days[4] << endl;
+
+	int a = 10;
+	const int *p1 = &a; //указатель на константу
+	int const *p2 = &a;	//указатель на константу
+	//*p2 = 20;
+	p1 = 0;
+
+	int * const p3 = &a; //константный указатель
+	*p3 = 30;
+	//p3 = 0;
+
+	int  const * const p4 = &a; //константный указатель на константу
+	//*p4 = 40;
+	//p4 = 0;
+
+	int const *const * m;
+}
+
+void constant1() {
+	int a = 10;
+	int *p = &a;
+	//указатель на указатель const int
+	//int const ** p1 = &p;
+	////**p1 = 20;
+	//*p1 = 0;
+	//p1 = 0;
+
+	//указатель на констрантный указатель int
+	int * const *p2 = &p;
+	**p2 = 30;
+	//*p2 = 0;
+	p2 = 0;
+	//константный указатель на указатель int
+	int ** const p3 = &p;
+	**p3 = 30;
+	*p3 = 0;
+	//p3 = 0;
+}
+
 int main() {
 	setlocale(LC_ALL, "Rus");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
 	//constructors();
-	classes();
+	//classes();
+	//constant();
+	//_Segment();
+	arr();
+
 
 	cin.get();
 	cout << "\n Press Enter";

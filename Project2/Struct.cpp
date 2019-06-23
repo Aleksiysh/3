@@ -12,11 +12,19 @@ double lenght(Segment *s) {
 double Segment::lenght() {
 	return sqrt(this->p1.x*this->p1.x + this->p1.y*this->p1.y);
 }
+Point Segment::midpoint(){
+	return Point((this->p1.x + this->p2.x) / 2, (this->p1.y + this->p2.y) / 2);
+}
+Point midpoint(Segment const & a) {
+	return Point((a.p1.x + a.p2.x) / 2, (a.p1.y + a.p2.y) / 2);
+}
+
 
 //get[i][j]
 int & IntArray2D::get(size_t i, size_t j) {
 	return data[i*b + j];
 }
+
 
 String::String(const char *str) {
 	size_t size = 0;
@@ -75,6 +83,9 @@ void myIntArray::resize(size_t new_size) {
 	this->size = new_size;
 };
 int & myIntArray::getElement(size_t i) {
+	return *(this->data + i);
+};
+int myIntArray::getElement(size_t i) const {
 	return *(this->data + i);
 };
 void myIntArray::setElement(size_t i, int value) {

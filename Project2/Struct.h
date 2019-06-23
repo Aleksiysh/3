@@ -31,8 +31,10 @@ struct Segment
 	//explicit // запрет неявного конструктора от одного параметра
 	Segment(double length) : p2(length, 0) {}
 	double  lenght();
-
+	Point midpoint();
 };
+//Середина отрезка
+Point midpoint(Segment const & a);
 //Длина отрезка
 double lenght(Segment *s);
 //двумерный массив
@@ -50,8 +52,14 @@ struct myIntArray
 	~myIntArray();
 	void resize(size_t new_size);
 	int & getElement(size_t i);
+	int getElement(size_t i) const;
 	void setElement(size_t i, int value);
 	void print();
+	size_t get_size() const {
+		return this->size;
+		//this->size = 0;
+	}
+private:
 	size_t size;
 	int * data;
 };
