@@ -1,5 +1,5 @@
 #include "OOP.h"
-#include <iostream>
+
 using namespace std;
 
 Person::Person(string name, int age)

@@ -1,15 +1,14 @@
 #pragma once
 #include <iostream>
-#include <clocale>
-#include <windows.h>
+
 using namespace std;
 
 struct Person {
 	string name() const;
 	int age() const;
-	Person(std::string name, int age);
+	Person(string name, int age);
 private:
-	std::string name_;
+	string name_;
 	int age_;
 };
 
