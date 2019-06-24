@@ -20,10 +20,12 @@ void vector() {
 	d = p3[1];
 	p1++;
 	++p1;
-	cout << p1;
+	//cout << p1;
 	Vector p5;
-	cin >> p5;
-	cout << p5;
+	//cin >> p5;
+	//cout << p5;
+
+	myString str("12345");
 	
 }
 

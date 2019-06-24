@@ -34,6 +34,7 @@ Vector  Vector::operator++(int) { Vector tmp(*this); ++(*this); return tmp; };	/
 Vector & Vector::operator--() { x_--; y_--; return *this; }
 Vector  Vector::operator--(int) { Vector tmp(*this); --(*this); return tmp; }
 
+
 istream & operator>>(std::istream & is, Vector & p)
 {
 	is >> p.x_ >> p.y_;
@@ -45,3 +46,15 @@ ostream & operator<<(ostream & os, Vector & p)
 	return os;
 };
 Vector   operator*(double d, Vector const & p) { Vector tmp = p; return tmp * d; };
+
+myString::myString(const char * str)
+{
+	size_ = 0;
+	while (str[size_] != '\0')
+		++size_;
+	
+	
+	data_ = new char[size_ + 1];
+	for (size_t i = 0; i < size_ + 1; ++i)
+		data_[i] = str[i];
+}

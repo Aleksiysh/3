@@ -108,3 +108,24 @@ private:
 Vector operator *(double d, Vector const & p);
 istream & operator>>(istream &is, Vector &p);
 
+struct myString {
+	myString(const char  *str = "");
+	char &operator *() const { return *data_; };
+	char * operator ->() const { return data_; };
+	char * get()	const { return data_; };
+	//приведение к bool
+	operator bool() const { return size_ != 0; }; 
+	//Приведение к С-строке
+	operator char const *() {
+		if (*this)
+			return data_;
+		return "";
+	};
+
+
+
+private :
+	size_t size_;
+	char * data_;
+};
+
