@@ -39,7 +39,6 @@ int main() {
 	//tstPerson();
 	vector();
 
-
 	cin.get();
 	cout << "\n Press Enter";
 	cin.get();

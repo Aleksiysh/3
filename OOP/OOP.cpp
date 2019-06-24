@@ -52,8 +52,7 @@ myString::myString(const char * str)
 	size_ = 0;
 	while (str[size_] != '\0')
 		++size_;
-	
-	
+		
 	data_ = new char[size_ + 1];
 	for (size_t i = 0; i < size_ + 1; ++i)
 		data_[i] = str[i];
