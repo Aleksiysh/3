@@ -6,20 +6,8 @@
 using namespace std;
 
 void tstPerson() {
-	Person a("Вася", 25);
-	Student b("Vanya", 22, "MFTI");
-
-	Student d(a, "ddd");
-	Person c = b;
-
-	Professor p(a);
-	cout << a.name()<<endl;
-	cout << p.name() << endl;
-
-	Person *pp = &p;
-	cout << pp->name() << endl;
-	Person &l = b;
-	Person *r = &b;
+	Professor a("Vasya", 56, "C++", "C++ language");
+	cout << a.name() << " " << a.age() << " " << a.course() << " " << a.thesis() << " " << a.ocupation() << endl;
 }
 void vector() {
 	Vector2D p(1, 2);

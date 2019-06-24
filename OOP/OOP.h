@@ -1,31 +1,35 @@
 #pragma once
-#include <iostream>
+//#include <iostream>
+#include <string>
 
 using namespace std;
 
 struct Person {
+	Person(string const &name, int age);
+	virtual ~Person() {};
 	virtual string name() const;
-	int age() const;
-	Person(string name, int age);
+	virtual int age();
+	virtual string ocupation() const = 0;
 private:
 	string name_;
 	int age_;
 };
-struct Student :Person {
-	Student(string name, int age, string university);
-	Student(Person const &a, string university);
-	string university();
+struct Teacher : Person{
+	Teacher(string const &nm, int age, string const course);
+	virtual string ocupation() const;
+	virtual string course();
 private:
-	string university_;
+	string course_;
 };
-struct Professor : Person {
-	Professor(string name, int  age) 
-	:Person(name,age) {};
-	Professor(Person &a)
-		:Person(a.name(), a.age()) {};
-	string name() const {
-		return "Prof. " + Person::name();
-	}
+
+struct Professor : Teacher {
+	Professor(string const & name, int age, string const & course, string const & thesis);
+	virtual string name();
+	virtual string thesis();
+	virtual string ocupation();
+
+private:
+	string thesis_;
 };
 
 //4.1.7
