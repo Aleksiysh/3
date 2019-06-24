@@ -18,3 +18,30 @@ Professor::Professor(string const & name, int age, string const & course, string
 string Professor::name() { return "Prof. " + Person::name(); }
 string Professor::thesis() { return thesis_; };
 string Professor::ocupation() { return "professor"; };
+
+Vector::Vector(double x, double y) :x_(x), y_(y) {}
+Vector Vector::operator-() { return Vector(-x_, -y_); }
+Vector Vector::operator-(Vector const & p) { return Vector(x_ - p.x_, y_ - p.y_); }
+Vector & Vector::operator-=(Vector const & p) { x_ -= p.x_; y_ -= p.y_; return *this; };
+Vector Vector::operator-(double d) { return Vector(x_ - d, y_ - d); }
+Vector & Vector::operator-=(double d) { x_ -= d; y_ -= d; return *this; };
+Vector Vector::operator+(Vector const & p) { return Vector(x_ + p.x_, y_ + p.y_); }
+Vector Vector::operator*(double d) { return Vector(x_*d, y_*d); }
+Vector & Vector::operator*=(double d) { x_ *= d; y_ *= d; return *this; }
+double Vector::operator[](size_t i) { return (i == 0) ? x_ : y_; }
+Vector & Vector::operator++() { x_++; y_++; return *this; }	//префикс ++p
+Vector  Vector::operator++(int) { Vector tmp(*this); ++(*this); return tmp; };	//постфикс p++
+Vector & Vector::operator--() { x_--; y_--; return *this; }
+Vector  Vector::operator--(int) { Vector tmp(*this); --(*this); return tmp; }
+
+istream & operator>>(std::istream & is, Vector & p)
+{
+	is >> p.x_ >> p.y_;
+	return is;
+};
+ostream & operator<<(ostream & os, Vector & p)
+{
+	os << p.x_ << " " << p.y_ ;
+	return os;
+};
+Vector   operator*(double d, Vector const & p) { Vector tmp = p; return tmp * d; };

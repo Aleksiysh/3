@@ -1,5 +1,5 @@
 #pragma once
-//#include <iostream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -14,7 +14,7 @@ private:
 	string name_;
 	int age_;
 };
-struct Teacher : Person{
+struct Teacher : Person {
 	Teacher(string const &nm, int age, string const course);
 	virtual string ocupation() const;
 	virtual string course();
@@ -82,4 +82,29 @@ struct Vector2D {
 	}
 	double x, y;
 };
+
+struct Vector {
+	Vector(double x = 0, double y = 0);
+	Vector operator - ();
+	Vector operator -(Vector const &p);
+	Vector & operator -=(Vector const &p);
+	Vector operator -(double d);
+	Vector & operator -=(double d);
+	Vector operator + (Vector const &p);
+	Vector operator *  (double d);
+	Vector & operator *=(double d);
+	double operator [](size_t i);
+	Vector & operator ++(); //Префикс
+	Vector operator ++(int); //постфикс
+	Vector & operator --();
+	Vector operator --(int);
+
+	friend istream & operator>>(istream &is, Vector &p);	//cin>>
+	friend ostream & operator<<(ostream &os, Vector &p);	//cout<<
+
+private:
+	double x_, y_;
+};
+Vector operator *(double d, Vector const & p);
+istream & operator>>(istream &is, Vector &p);
 

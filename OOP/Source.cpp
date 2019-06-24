@@ -10,9 +10,21 @@ void tstPerson() {
 	cout << a.name() << " " << a.age() << " " << a.course() << " " << a.thesis() << " " << a.ocupation() << endl;
 }
 void vector() {
-	Vector2D p(1, 2);
-	Vector2D q = p.mult(10);
-	double r = p.mult(q);
+	Vector p(1, 2);
+	Vector p1 = -p;
+	Vector p2 = p1 - p;
+	p = p1 + p2;
+	double d = 5.6;
+	Vector p3 = p1 * d;
+	Vector p4 = d * p1;
+	d = p3[1];
+	p1++;
+	++p1;
+	cout << p1;
+	Vector p5;
+	cin >> p5;
+	cout << p5;
+	
 }
 
 
@@ -22,8 +34,8 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	tstPerson();
-	//vector();
+	//tstPerson();
+	vector();
 
 
 	cin.get();
